@@ -1,0 +1,63 @@
+version: "3"
+services:
+  # ==========================================================================
+  gitlab:
+    name: "gitlab"
+    build: "./gitlab"
+    ports:
+      - 14200:80
+    volumes:
+      - local-data:/home/gitlab
+    networks:
+      - cicdnet
+
+  # ==========================================================================
+  jenkins:
+    name: "jenkins"
+    build: "./jenkins"
+    ports:
+      - 14300:8080
+    volumes:
+      - local-data:/home/jenkins
+    networks:
+      - cicdnet
+    environment:
+      - JENKINS_HOME=/home/jenkins
+
+  # ==========================================================================
+  nexus:
+    name: "nexus"
+    build: "./nexus"
+    ports:
+      - 8081:8081
+    volumes:
+      - local-data:/nexus-data
+    networks:
+      - cicdnet
+
+#sonar:
+#  build: "./sonar"
+#docker-registry:
+#  build: "./docker-registry"
+#consul:
+#  build: "./consul"
+#prometheus:
+#  build: "./prometheus"
+#splunk:
+#  build: "./splunk"
+#grafana:
+#  build: "./grafana"
+#  volumes:
+#    - cicd_data/var
+networks:
+  cicdnet:
+
+volumes:
+  local-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/smiguelnet/SETIA/Github/engage-ci-cd-setup/data
+#networks:
+#  overlay:
