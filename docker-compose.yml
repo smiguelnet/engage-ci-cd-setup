@@ -2,7 +2,7 @@ version: "3"
 services:
   # ==========================================================================
   gitlab:
-    name: "gitlab"
+    container_name: "gitlab"
     build: "./gitlab"
     ports:
       - 14200:80
@@ -10,10 +10,11 @@ services:
       - local-data:/home/gitlab
     networks:
       - cicdnet
+    restart: always
 
   # ==========================================================================
   jenkins:
-    name: "jenkins"
+    container_name: "jenkins"
     build: "./jenkins"
     ports:
       - 14300:8080
@@ -23,10 +24,14 @@ services:
       - cicdnet
     environment:
       - JENKINS_HOME=/home/jenkins
+    depends_on:
+      - "gitlab"
+    restart: always
 
   # ==========================================================================
+  # u: admin | p: data/admin.password
   nexus:
-    name: "nexus"
+    container_name: "nexus"
     build: "./nexus"
     ports:
       - 8081:8081
@@ -34,24 +39,87 @@ services:
       - local-data:/nexus-data
     networks:
       - cicdnet
+    depends_on:
+      - "jenkins"
+    restart: always
 
-#sonar:
-#  build: "./sonar"
-#docker-registry:
-#  build: "./docker-registry"
-#consul:
-#  build: "./consul"
-#prometheus:
-#  build: "./prometheus"
-#splunk:
-#  build: "./splunk"
-#grafana:
-#  build: "./grafana"
-#  volumes:
-#    - cicd_data/var
+  # ==========================================================================
+  registry:
+    container_name: "docker_registry"
+    build: "./docker_registry"
+    ports:
+      - 5000:5000
+    networks:
+      - cicdnet
+    restart: always
+
+  # ==========================================================================
+  # u: admin | p: admin
+  sonar:
+    container_name: "sonar"
+    build: "./sonar"
+    ports:
+      - 9000:9000
+    volumes:
+      - local-data:/opt/sonarqube/data
+    networks:
+      - cicdnet
+    restart: always
+
+  # ==========================================================================
+  consul:
+    container_name: "consul"
+    build: "./consul"
+    ports:
+      - 8500:8500
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    volumes:
+      - local-data:/opt/sonarqube/data
+    networks:
+      - cicdnet
+    restart: always
+
+  # ==========================================================================
+  prometheus:
+    container_name: "prometheus"
+    build: "./prometheus"
+    ports:
+      - 9090:9090
+    networks:
+      - cicdnet
+    restart: always
+
+  # ==========================================================================
+  grafana:
+    container_name: "grafana"
+    build: "./grafana"
+    ports:
+      - 3000:3000
+    networks:
+      - cicdnet
+    restart: always
+
+  # ==========================================================================
+  splunk:
+    container_name: "splunk"
+    build: "./splunk"
+    ports:
+      - 8000:8000
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=admin
+    networks:
+      - cicdnet
+    restart: always
+
+# ==========================================================================
+# NETWORK
 networks:
   cicdnet:
 
+# ==========================================================================
+# VOLUMES
 volumes:
   local-data:
     driver: local
@@ -59,5 +127,3 @@ volumes:
       o: bind
       type: none
       device: /Users/smiguelnet/SETIA/Github/engage-ci-cd-setup/data
-#networks:
-#  overlay:
