@@ -106,6 +106,7 @@ services:
     build: "./splunk"
     ports:
       - 8000:8000
+      - 25600:25600
     environment:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_PASSWORD=admin

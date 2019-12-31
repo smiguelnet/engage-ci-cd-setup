@@ -30,7 +30,7 @@ Engage CI/CI local setup.
   - Docker
   - Docker Registry
 
-- Distributed Condiguration
+- Distributed Configuration
 
   - Consul
 
@@ -40,6 +40,24 @@ Engage CI/CI local setup.
   - Grafana
 
 ---
+
+## URL Access
+
+- Gitlab <br /> http://localhost:14200/
+
+- Jenkins <br /> http://localhost:14300/
+
+- Nexus <br /> http://localhost:8081/
+
+- Consul <br /> http://localhost:8500/
+
+- Prometheus <br /> http://localhost:9090/
+
+- Grafana <br /> http://localhost:3000/
+
+- Splunk <br /> http://localhost:8000/
+
+- Docker Registry Images <br /> http://localhost:5000/v2/_catalog
 
 ## License
 
