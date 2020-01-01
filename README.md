@@ -1,6 +1,6 @@
 # engage-ci-cd-setup
 
-Local Environment Setup and a Simple Demo Process.
+Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD process.
 
 ## Overview
 

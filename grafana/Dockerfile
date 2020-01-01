@@ -1,4 +1,4 @@
-FROM prom/prometheus
+FROM grafana/grafana
 
 LABEL maintainer="Sergio Miguel <sergio@smiguelnet>"
 LABEL service.name="Grafana"

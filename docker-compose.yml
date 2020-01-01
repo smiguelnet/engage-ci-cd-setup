@@ -91,11 +91,14 @@ services:
     restart: always
 
   # ==========================================================================
+  # u: admin | p: admin
   grafana:
     container_name: "grafana"
     build: "./grafana"
     ports:
       - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       - cicdnet
     restart: always
