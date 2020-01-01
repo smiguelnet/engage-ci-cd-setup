@@ -79,7 +79,27 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 ## Build Environment Up
 
 ```
-docker-compose up --force-recreate
+docker-compose up
+```
+
+### Useful commands
+
+In case you need to rebuild the images
+
+```
+docker-compose build --no-cache
+```
+
+Stop the instances
+
+```
+docker-compose stop
+```
+
+Remove the instances
+
+```
+docker-compose rm
 ```
 
 ---

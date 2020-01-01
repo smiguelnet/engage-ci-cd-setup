@@ -83,16 +83,6 @@ services:
     restart: always
 
   # ==========================================================================
-  prometheus:
-    container_name: "prometheus"
-    build: "./prometheus"
-    ports:
-      - 9090:9090
-    networks:
-      - cicdnet
-    restart: always
-
-  # ==========================================================================
   # u: admin | p: admin
   grafana:
     container_name: "grafana"
@@ -116,6 +106,18 @@ services:
       - SPLUNK_PASSWORD=Admin2019
     networks:
       - cicdnet
+    restart: always
+
+  # ==========================================================================
+  prometheus:
+    container_name: "prometheus"
+    build: "./prometheus"
+    ports:
+      - 9090:9090
+    networks:
+      - cicdnet
+    depends_on:
+      - "grafana"
     restart: always
 
 # ==========================================================================
