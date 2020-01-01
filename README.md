@@ -1,10 +1,10 @@
 # engage-ci-cd-setup
 
-CI/CD Environment Config and Simple Demo Process.
+Local Environment Setup and a Simple Demo Process.
 
 ## Overview
 
-![Environment Config and Simple Demo Process](assets/img/overview.png "CD/CD Overview")
+![Local Env Setup + Simple Demo Process](assets/img/overview.png "CD/CD Overview")
 
 ---
 
