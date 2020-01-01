@@ -108,6 +108,12 @@ Get Jenkins password
 docker exec jenkins cat /home/jenkins/secrets/initialAdminPassword
 ```
 
+Get Nexus password
+
+```
+docker exec nexus cat nexus-data/admin.password
+```
+
 ---
 
 ## License
