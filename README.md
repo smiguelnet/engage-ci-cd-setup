@@ -102,8 +102,14 @@ Remove the instances
 docker-compose rm
 ```
 
+Get Jenkins password
+
+```
+docker exec jenkins cat /home/jenkins/secrets/initialAdminPassword
+```
+
 ---
 
 ## License
 
-**engage-api-java-sdk** is licensed under an Apache-2.0 license
+**engage-ci-cd-setup** is licensed under an Apache-2.0 license
