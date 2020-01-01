@@ -69,7 +69,7 @@ Local Environment Setup and a Simple Demo Process.
 
 ## Demo Project
 
-- **sample-app** <br /> Simple SpringBoot Application
+- **sample-app** <br /> Simple Java Application using Spring Boot
 
 ---
 
