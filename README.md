@@ -16,7 +16,8 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 - **Code Repository**
 
-  - Gitlab
+  - Github (Hosts Demo project)
+  - Gitlab (Used for local repository <em>\* Not this sample</em>)
 
 - **Build and Deploy**
 
@@ -69,7 +70,7 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 ## Demo Project
 
-- **sample-app** <br /> Simple Java Application using Spring Boot
+- **sample-app** <br /> https://github.com/smiguelnet/sample-app-ci-cd
 
 ---
 

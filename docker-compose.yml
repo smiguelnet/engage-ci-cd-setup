@@ -1,16 +1,18 @@
 version: "3"
 services:
   # ==========================================================================
-  gitlab:
-    container_name: "gitlab"
-    build: "./gitlab"
-    ports:
-      - 14200:80
-    volumes:
-      - local-data:/home/gitlab
-    networks:
-      - cicdnet
-    restart: always
+  # NOTE: Used Github as source repo for demo purpose
+  #
+  # gitlab:
+  #  container_name: "gitlab"
+  #  build: "./gitlab"
+  #  ports:
+  #    - 14200:80
+  #  volumes:
+  #    - local-data:/home/gitlab
+  #  networks:
+  #    - cicdnet
+  #  restart: always
 
   # ==========================================================================
   jenkins:
