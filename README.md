@@ -1,40 +1,46 @@
 # engage-ci-cd-setup
 
-Engage CI/CI local setup.
+CI/CD Environment Config and Simple Demo Process.
+
+## Overview
+
+![Environment Config and Simple Demo Process](assets/img/overview.png "CD/CD Overview")
+
+---
 
 ## Toolkit
 
-- Infrastructure
+- **Infrastructure**
 
   - Ansible (v2.9.2)
 
-- Code Repository
+- **Code Repository**
 
   - Gitlab
 
-- Build and Deploy
+- **Build and Deploy**
 
   - Maven
   - Jenkins
 
-- Quality Assurance
+- **Quality Assurance**
 
   - Sonar
 
-- Library Repository
+- **Library Repository**
 
   - Nexus
 
-- Container
+- **Container**
 
   - Docker
   - Docker Registry
 
-- Distributed Configuration
+- **Distributed Configuration**
 
   - Consul
 
-- Metrics, Data Evaluation and Presentation
+- **Metrics, Data Evaluation and Presentation**
   - Prometheus
   - Splunk
   - Grafana
@@ -58,6 +64,8 @@ Engage CI/CI local setup.
 - Splunk <br /> http://localhost:8000/
 
 - Docker Registry Images <br /> http://localhost:5000/v2/_catalog
+
+---
 
 ## License
 
