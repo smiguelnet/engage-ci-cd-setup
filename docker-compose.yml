@@ -26,8 +26,8 @@ services:
       - cicdnet
     environment:
       - JENKINS_HOME=/home/jenkins
-    depends_on:
-      - "gitlab"
+    #depends_on:
+    #  - "gitlab"
     restart: always
 
   # ==========================================================================
@@ -99,13 +99,12 @@ services:
     build: "./grafana"
     ports:
       - 3000:3000
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       - cicdnet
     restart: always
 
   # ==========================================================================
+  # u: admin | p: Admin2019 (admin was not used because there are some password restriction rules)
   splunk:
     container_name: "splunk"
     build: "./splunk"
@@ -114,7 +113,7 @@ services:
       - 25600:25600
     environment:
       - SPLUNK_START_ARGS=--accept-license
-      - SPLUNK_PASSWORD=admin
+      - SPLUNK_PASSWORD=Admin2019
     networks:
       - cicdnet
     restart: always

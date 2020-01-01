@@ -50,8 +50,6 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 ## URL Access
 
-- Gitlab <br /> http://localhost:14200/
-
 - Jenkins <br /> http://localhost:14300/
 
 - Nexus <br /> http://localhost:8081/
@@ -62,15 +60,27 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 - Grafana <br /> http://localhost:3000/
 
+- Sonar <br /> http://localhost:9000/
+
 - Splunk <br /> http://localhost:8000/
 
 - Docker Registry Images <br /> http://localhost:5000/v2/_catalog
+
+- Sample App <br /> http://localhost:8080/
 
 ---
 
 ## Demo Project
 
 - **sample-app** <br /> https://github.com/smiguelnet/sample-app-ci-cd
+
+---
+
+## Build Environment Up
+
+```
+docker-compose up --force-recreate
+```
 
 ---
 
