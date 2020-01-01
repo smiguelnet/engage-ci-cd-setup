@@ -67,6 +67,12 @@ Local Environment Setup and a Simple Demo Process.
 
 ---
 
+## Demo Project
+
+- **sample-app** <br /> Simple SpringBoot Application
+
+---
+
 ## License
 
 **engage-api-java-sdk** is licensed under an Apache-2.0 license
