@@ -18,8 +18,7 @@
   - JaCoCo <br />
     https://plugins.jenkins.io/jacoco
 
-  - Config File Provider \* Edit Nexus Credentials under Settings.xml file <br />
-    https://plugins.jenkins.io/config-file-provider
+  - Pipeline Maven Plugin <br />
 
 * Environment Variables
 
@@ -124,3 +123,9 @@ build job: 'Sample-App-Deploy',
             [$class: 'BooleanParameterValue', name: 'runLoadTest', value: true]
     ]
 ```
+
+# Notes
+
+> In order to run some scripts you will need to get Jenkins approval
+
+> It is required to expose DOCKER_HOST daemon port
