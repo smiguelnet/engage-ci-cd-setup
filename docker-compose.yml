@@ -114,6 +114,8 @@ services:
     build: "./prometheus"
     ports:
       - 9090:9090
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
     networks:
       - cicdnet
     depends_on:
