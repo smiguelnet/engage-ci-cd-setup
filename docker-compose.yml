@@ -21,7 +21,7 @@ services:
     ports:
       - 14300:8080
     volumes:
-      - local-data:/home/jenkins
+      - local-data-jenkins:/home/jenkins
     networks:
       - cicdnet
     environment:
@@ -38,7 +38,7 @@ services:
     ports:
       - 8081:8081
     volumes:
-      - local-data:/nexus-data
+      - local-data-nexus:/nexus-data
     networks:
       - cicdnet
     depends_on:
@@ -63,7 +63,7 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - local-data:/opt/sonarqube/data
+      - local-data-sonar:/opt/sonarqube/data
     networks:
       - cicdnet
     restart: always
@@ -76,8 +76,6 @@ services:
       - 8500:8500
     environment:
       - CONSUL_BIND_INTERFACE=eth0
-    volumes:
-      - local-data:/opt/sonarqube/data
     networks:
       - cicdnet
     restart: always
@@ -130,9 +128,21 @@ networks:
 # ==========================================================================
 # VOLUMES
 volumes:
-  local-data:
+  local-data-jenkins:
     driver: local
     driver_opts:
       type: none
-      device: /home/smiguelnet/cicd-data
+      device: /home/smiguelnet/cicd-data/jenkins
+      o: bind
+  local-data-nexus:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/smiguelnet/cicd-data/nexus
+      o: bind
+  local-data-sonar:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/smiguelnet/cicd-data/sonar
       o: bind

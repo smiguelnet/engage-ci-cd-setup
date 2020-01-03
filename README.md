@@ -48,25 +48,63 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 ---
 
-## URL Access
+## Environment Setup with Ansible
 
-- Jenkins <br /> http://localhost:14300/
+Ansible will be in charge to compose the whole environment used for this demo. Find below detailed steps.
 
-- Nexus <br /> http://localhost:8081/
+## Ansible Installation Required
 
-- Consul <br /> http://localhost:8500/
+Ref. [Ansible Installation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-- Prometheus <br /> http://localhost:9090/
+## Step 1 - Setup Ansible Hosts
 
-- Grafana <br /> http://localhost:3000/
+File location: /etc/ansible/hosts.<br />
+_It is required to replace HOST_IP key in the code snippets below_
 
-- Sonar <br /> http://localhost:9000/
+```
+[servers]
+HOST_IP ansible_connection=ssh ansible_port=22 ansible_user=smiguelnet ansible_python_interpreter=/usr/bin/python3 ansible_become=true ansible_become_user=root ansible_become_password=smiguelnet
+```
 
-- Splunk <br /> http://localhost:8000/
+Checking host connectivity
 
-- Docker Registry Images <br /> http://localhost:5000/v2/_catalog
+```
+ansible servers -m ping
+```
 
-- Sample App <br /> http://localhost:8080/
+## Step 2 - Installing Docker at destination hosts
+
+```sh
+ansible-playbook docker-playbook.yml
+```
+
+## Step 2 - Running docker-compose at destination hosts
+
+```sh
+ansible-playbook docker-compose-playbook.yml
+```
+
+---
+
+## Services URL
+
+- Jenkins <br /> http://HOST_IP:14300/
+
+- Nexus <br /> http://HOST_IP:8081/
+
+- Consul <br /> http://HOST_IP:8500/
+
+- Prometheus <br /> http://HOST_IP:9090/
+
+- Grafana <br /> http://HOST_IP:3000/
+
+- Sonar <br /> http://HOST_IP:9000/
+
+- Splunk <br /> http://HOST_IP:8000/
+
+- Docker Registry Images <br /> http://HOST_IP:5000/v2/_catalog
+
+- Sample App <br /> http://HOST_IP:8080/
 
 ---
 
@@ -76,30 +114,12 @@ Local Environment Setup and a Simple Demo Project to illustrate the whole CI/CD 
 
 ---
 
-## Build Environment Up
-
-```
-docker-compose up
-```
-
-### Useful commands
+## Useful commands
 
 In case you need to rebuild the images
 
 ```
 docker-compose build --no-cache
-```
-
-Stop the instances
-
-```
-docker-compose stop
-```
-
-Remove the instances
-
-```
-docker-compose rm
 ```
 
 Get Jenkins password

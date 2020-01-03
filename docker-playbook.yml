@@ -13,3 +13,16 @@
         name: ["apt-transport-https", "ca-certificates", "curl", "software-properties-common", "docker-ce"]
         state: present
         update_cache: yes
+    - name: Install pip
+      apt:
+        name: ["python3", "python-pip", "python3-pip"]
+        state: present
+        update_cache: yes
+    - pip:
+        name: docker-py
+        executable: pip3
+        state: latest
+    - pip:
+        name: docker-compose
+        executable: pip3
+        state: latest
