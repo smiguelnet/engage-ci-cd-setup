@@ -133,6 +133,6 @@ volumes:
   local-data:
     driver: local
     driver_opts:
-      o: bind
       type: none
-      device: /Users/smiguelnet/SETIA/Github/engage-ci-cd-setup/data
+      device: /home/smiguelnet/cicd-data
+      o: bind

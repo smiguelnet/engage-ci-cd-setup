@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Run services defined into docker-compose.yml file
+      docker_compose:
+      project_src: .
