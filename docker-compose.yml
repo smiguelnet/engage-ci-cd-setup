@@ -7,7 +7,7 @@ services:
   #  container_name: "gitlab"
   #  build: "./gitlab"
   #  ports:
-  #    - 14200:80
+  #    - 9092:80
   #  volumes:
   #    - local-data:/home/gitlab
   #  networks:
@@ -19,9 +19,10 @@ services:
     container_name: "jenkins"
     build: "./jenkins"
     ports:
-      - 14300:8080
+      - 9091:8080
     volumes:
       - local-data-jenkins:/home/jenkins
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - cicdnet
     environment:
