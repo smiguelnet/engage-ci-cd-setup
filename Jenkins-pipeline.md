@@ -24,7 +24,7 @@
 
   - URL_SERVER_CONSUL = 172.17.0.1
 
-* Docker client installtion at Jenkins container - Steps below
+* Docker Client Installation at Jenkins container - Steps below
 
 ```sh
   apt update
@@ -38,6 +38,8 @@
 ```
 
 <em>As docker-compose creates Jenkins exposing docker daemon then the container will use docker host</em>
+
+- Ansible Installation
 
 ---
 
