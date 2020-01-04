@@ -88,7 +88,7 @@ ansible-playbook docker-compose-playbook.yml
 
 ## Services URL
 
-- Jenkins <br /> http://HOST_IP:14300/
+- Jenkins <br /> http://HOST_IP:9091/
 
 - Nexus <br /> http://HOST_IP:8081/
 
