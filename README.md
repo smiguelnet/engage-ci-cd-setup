@@ -136,6 +136,12 @@ docker exec nexus cat nexus-data/admin.password
 
 ---
 
+## Basic Slides
+
+https://docs.google.com/presentation/d/14Obk5Gs1GWE_sMaa_FxzgfMODXrSw5A4wFlLmJSI3hg
+
+---
+
 ## License
 
 **engage-ci-cd-setup** is licensed under an Apache-2.0 license
